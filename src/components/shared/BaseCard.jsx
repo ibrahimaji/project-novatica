@@ -1,6 +1,7 @@
+import { twMerge } from 'tailwind-merge'
 
-const BaseCard = ({children,withClass}) => {
-    return <div className={'p-6 rounded-lg ' + withClass }>{children}</div>;
+const BaseCard = ({className, children}) => {
+    return <div className={twMerge('p-6 rounded-lg', className)}>{children}</div>;
 }
 
 export default BaseCard;
