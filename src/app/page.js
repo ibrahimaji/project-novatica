@@ -1,5 +1,10 @@
-import Image from 'next/image'
+import { AuthLogin } from "@/components/Auth/components/Auth.Login";
+import Image from "next/image";
 
 export default function Home() {
-  return <main>Hello Project</main>
+  return (
+    <main>
+    <AuthLogin />
+    </main>
+  );
 }
