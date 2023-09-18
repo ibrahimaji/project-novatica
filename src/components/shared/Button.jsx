@@ -17,7 +17,7 @@ const Button = ({children,type,onClick = () => {}}) => {
             typeClass = "text-white bg-red-600 hover:bg-red-800"
             break
     }
-    return <button onClick={onClick} className={'flex items-center gap-2 font-medium rounded-lg text-sm px-4 py-2.5 transition-color duration-150 ' + typeClass}>{children}</button>;
+    return <button onClick={onClick} className={'flex items-center gap-2 font-medium rounded-md text-sm px-4 py-2.5 transition-color duration-150 ' + typeClass}>{children}</button>;
 }
 
 export default Button;
