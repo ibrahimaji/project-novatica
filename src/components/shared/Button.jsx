@@ -1,7 +1,8 @@
 import { twMerge } from 'tailwind-merge'
 
 const Button = ({children,variant,onClick = () => {},className}) => {
-    let variantClass = ""
+    const buttonClass = "w-full font-medium rounded-md text-sm px-4 py-2.5 transition-color duration-150"
+    let variantClass = "" 
     switch (variant) {
         case "primary":
             variantClass = "text-white bg-blue-500 hover:bg-blue-600"
@@ -19,7 +20,9 @@ const Button = ({children,variant,onClick = () => {},className}) => {
             variantClass = "text-white bg-red-600 hover:bg-red-800"
             break
     }
-    return <button onClick={onClick} className={twMerge('flex items-center gap-2 font-medium rounded-md text-sm px-4 py-2.5 transition-color duration-150',[className,variantClass])}>{children}</button>;
+
+    const baseClass = twMerge(buttonClass,variantClass)
+    return <button onClick={onClick} className={twMerge(baseClass,className)}>{children}</button>;
 }
 
 export default Button;
