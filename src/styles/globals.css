@@ -4,3 +4,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&family=Montserrat&family=Roboto&display=swap');
 
+@layer base {
+    h1, label, p {
+        @apply font-roboto;
+    }
+}

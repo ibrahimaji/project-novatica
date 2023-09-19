@@ -6,7 +6,7 @@ import Input from "@/components/shared/Input";
 
 export const AuthLogin = () => {
   return (
-    <main className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 gap-2">
+    <main className="flex h-screen flex-col items-center justify-center md:h-screen lg:py-0">
       <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,15 +28,15 @@ export const AuthLogin = () => {
         </svg>
         NOVATICA
       </a>
-      <BaseCard className=" w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+      <BaseCard className="flex justify-center">
+        <div className="w-[20rem] p-6 md:space-y-6 sm:p-8 dark:bg-gray-800 rounded-lg ">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Sign in to your account</h1>
           <form className="space-y-4 md:space-y-6">
-          <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-          <Input type="text" placeholder="name@company.com" className={"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#2563eb] focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"}  required="" />
-          <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-          <Input type="password" placeholder="••••••••" className={"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#2563eb] focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"} />
-          <Button variant="primary" className={"w-full justify-center items-center px-5 py-2.5 focus:outline-none font-medium text-sm"}>Sign in</Button>
+          <label for="email" className="block text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+          <Input type="text" placeholder="name@company.com" />
+          <label for="password" className="block text-sm font-medium text-gray-900 dark:text-white">Password</label>
+          <Input type="password" placeholder="••••••••" />
+          <Button variant="primary">Sign in</Button>
           <p className="text-sm font-light text-gray-500 dark:text-gray-400">
             Don't have an account yet? <a href="#" className="font-medium text-[#2563eb] hover:underline dark:text-[#3b82f6]">Sign up</a>
           </p>
