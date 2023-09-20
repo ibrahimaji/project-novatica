@@ -1,9 +1,12 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export const AppLogo = () => {
   return (
     <div>
-<Link href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 ">
+      <Link
+        href="#"
+        className="flex items-center mb-6 text-2xl font-semibold text-gray-900 "
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -24,5 +27,5 @@ export const AppLogo = () => {
         NOVATICA
       </Link>
     </div>
-  )
-}
+  );
+};
