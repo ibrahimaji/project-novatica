@@ -4,11 +4,10 @@ import { AppLogo } from "@/components/shared/AppLogo";
 import BaseCard from "@/components/shared/BaseCard";
 import Input from "@/components/shared/Input";
 import Button from "@/components/shared/Button";
-import { AuthLayout } from "../layout/Auth.Layout";
 
 export const AuthLogin = () => {
   return (
-    <AuthLayout>
+
     <BaseCard className="flex justify-center">
       <div className="w-[20rem] p-6 md:space-y-6 sm:p-8 dark:bg-gray-800 rounded-lg ">
         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -42,6 +41,5 @@ export const AuthLogin = () => {
         </form>
       </div>
     </BaseCard>
-    </AuthLayout>
   );
 };
