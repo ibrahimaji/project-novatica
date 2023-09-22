@@ -6,10 +6,7 @@ export const http = async (endpoint, method, body = {}) => {
     headers: {
       'Content-Type': 'application/json',
     },
-  }
-
-  if (Object.keys(body).length > 0) {
-    options.body = body
+    body: JSON.stringify(body)
   }
 
   const url = baseurl + endpoint
