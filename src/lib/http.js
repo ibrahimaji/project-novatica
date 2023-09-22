@@ -6,13 +6,16 @@ export const http = async (endpoint, method, body = {}) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(body)
+  }
+
+  if (Object.keys(body).length > 0) {
+    options.body = JSON.stringify(body)
   }
 
   const url = baseurl + endpoint
-  const result = await fetch(url, options)
 
   try {
+    const result = await fetch(url, options)
     const data = await result.json()
     return data
   } catch (error) {
