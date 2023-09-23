@@ -3,8 +3,39 @@
 import BaseCard from "@/components/shared/BaseCard"
 import Button from "@/components/shared/Button"
 import { ParticipantCard } from "./Participant.Card"
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
+import Input from "@/components/shared/Input";
+import { useState } from "react";
+import { http } from "@/lib/http";
+import { useRouter } from "next/navigation";
+import toast, { Toaster } from "react-hot-toast";
 
-export const DetailEvent = ({detail}) => {
+export const DetailEvent = ({detail,event_id}) => {
+    const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+    const route = useRouter()
+
+    const [participantData, setParticipantData] = useState({
+        name: "",
+        email: "",
+        phone: ""
+    });
+
+    const handleForm = (event) => {
+        const {name,value} = event.target
+        setParticipantData({ ...participantData, [name] : value, eventId: event_id })
+    }
+
+    const submitParticipant = async () => {
+        try {
+            await http("join-event", "POST", participantData)
+            toast.success("success confirmation your attendance!")
+        } catch (error) {
+            toast.error("Something went wrong, please try again!")
+        }
+        onClose()
+        route.refresh()
+    }
+
     return (
         <div className="lg:px-20 md:px-12 pb-40 mt-4 relative">
             <img src="/images/hero-card-complete.jpeg" alt="" className="w-full h-[500px] object-cover object-center rounded-md lg:px-0 md:px-0 px-8" />
@@ -50,8 +81,56 @@ export const DetailEvent = ({detail}) => {
                 <div className="lg:col-span-4 md:col-span-5 col-span-12 relative">
                     <BaseCard className="border border-gray-200 w-full lg:sticky md:sticky fixed lg:top-4 md:top-4 bottom-0">
                         <p className="text-center mb-2">Free</p>
-                        <Button variant="primary">Make Appoinment</Button>
+                        <Button variant="primary" onClick={onOpen}>Make Appoinment</Button>
                     </BaseCard>
+
+                    <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+                        <ModalContent>
+                            {(onClose) => (
+                                <>
+                                    <ModalHeader className="flex flex-col gap-1">Fill up your information</ModalHeader>
+                                    <ModalBody className="space-y-2">
+                                        <div className="space-y-2">
+                                            <label
+                                                className="block text-sm font-medium text-gray-900 dark:text-white"
+                                            >
+                                                Fullname
+                                            </label>
+                                            <Input type="text" name="name" placeholder="Jojon Doel" onChange={handleForm}/>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label
+                                                className="block text-sm font-medium text-gray-900 dark:text-white"
+                                            >
+                                                Email
+                                            </label>
+                                            <Input type="email" name="email" placeholder="jojondol@example.com" onChange={handleForm} />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label
+                                                className="block text-sm font-medium text-gray-900 dark:text-white"
+                                            >
+                                                Phone
+                                            </label>
+                                            <Input type="number" name="phone" placeholder="08xxxxxxxxxx" onChange={handleForm} />
+                                        </div>
+                                    </ModalBody>
+                                    <ModalFooter>
+                                        <Button variant="light" onClick={onClose}>
+                                            Close
+                                        </Button>
+                                        <Button variant="primary" onClick={submitParticipant}>
+                                            Submit
+                                        </Button>
+                                    </ModalFooter>
+                                </>
+                            )}
+                        </ModalContent>
+                    </Modal>
+                    <Toaster
+                        position="bottom-right"
+                        reverseOrder={true}
+                    />
                 </div>
             </div>
         </div>

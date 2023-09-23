@@ -6,6 +6,7 @@ export const http = async (endpoint, method, body = {}) => {
     headers: {
       'Content-Type': 'application/json',
     },
+    cache: 'no-cache',
   }
 
   if (Object.keys(body).length > 0) {
