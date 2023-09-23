@@ -1,5 +1,8 @@
-import { AuthLogin } from '@/components/Auth/components/Auth.Login'
+import { AppHome } from '@/components/Home/components/AppHome'
+import { http } from '@/lib/http'
 
-export default function Home() {
-  return <div>Home Page</div>
+export default async function Home() {
+  const { data } = await http('event', 'GET')
+
+  return <AppHome events={data} />
 }
