@@ -1,9 +1,8 @@
 "use client";
-
-import { AppLogo } from "@/components/shared/AppLogo";
 import BaseCard from "@/components/shared/BaseCard";
 import Input from "@/components/shared/Input";
 import Button from "@/components/shared/Button";
+import Link from "next/link";
 
 export const AuthRegister = () => {
   return (
@@ -42,12 +41,12 @@ export const AuthRegister = () => {
         <Button variant="primary">Sign up</Button>
         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
           Have an account?{" "}
-          <a
-            href="#"
+          <Link
+            href="/login"
             className="font-medium text-[#2563eb] hover:underline dark:text-[#3b82f6]"
           >
             Sign in
-          </a>
+          </Link>
         </p>
       </form>
     </BaseCard>

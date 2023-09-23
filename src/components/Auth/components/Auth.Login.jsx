@@ -1,6 +1,6 @@
 "use client";
 
-import { AppLogo } from "@/components/shared/AppLogo";
+import Link from "next/link";
 import BaseCard from "@/components/shared/BaseCard";
 import Input from "@/components/shared/Input";
 import Button from "@/components/shared/Button";
@@ -33,12 +33,12 @@ export const AuthLogin = () => {
         <Button variant="primary">Sign in</Button>
         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
           Don't have an account yet?{" "}
-          <a
-            href="#"
+          <Link
+            href="/register"
             className="font-medium text-[#2563eb] hover:underline dark:text-[#3b82f6]"
           >
             Sign up
-          </a>
+          </Link>
         </p>
       </form>
     </BaseCard>
