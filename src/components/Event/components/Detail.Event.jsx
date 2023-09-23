@@ -37,6 +37,14 @@ export const DetailEvent = ({detail}) => {
                     </div>
                     <div className="space-y-4">
                         <h2 className="font-semibold text-2xl">Participants</h2>
+                        <div className="grid grid-cols-5 gap-4">
+                            {
+                                detail.participants.length != 0 ?
+                                    detail.participants.map((participant) => {
+                                        return <ParticipantCard name={participant.name}/>
+                                    }) : <div className="col-span-5">No participant, please be first!</div>
+                            }
+                        </div>
                     </div>
                 </div>
                 <div className="col-span-4 relative">
