@@ -6,10 +6,10 @@ import { ParticipantCard } from "./Participant.Card"
 
 export const DetailEvent = ({detail}) => {
     return (
-        <div className="px-20 pb-20 mt-4">
-            <img src="/images/hero-card-complete.jpeg" alt="" className="w-full h-[500px] object-cover object-center rounded-md" />
-            <div className="mt-12 grid grid-cols-12 relative gap-x-8">
-                <div className="col-span-8 space-y-8">
+        <div className="lg:px-20 md:px-12 pb-40 mt-4 relative">
+            <img src="/images/hero-card-complete.jpeg" alt="" className="w-full h-[500px] object-cover object-center rounded-md lg:px-0 md:px-0 px-8" />
+            <div className="mt-12 grid grid-cols-12 gap-x-8">
+                <div className="lg:col-span-8 md:col-span-7 col-span-12 space-y-8  lg:px-0 md:px-0 px-8">
                     <h1 className="text-4xl font-bold">{detail.name}</h1>
                     <div className="bg-gray-50 p-4 flex items-center gap-4 rounded-md">
                         <img src="/images/profile-author.jpg" className="w-20 h-20 rounded-full object-cover" />
@@ -47,8 +47,8 @@ export const DetailEvent = ({detail}) => {
                         </div>
                     </div>
                 </div>
-                <div className="col-span-4 relative">
-                    <BaseCard className="border border-gray-200 w-full sticky top-4">
+                <div className="lg:col-span-4 md:col-span-5 col-span-12 relative">
+                    <BaseCard className="border border-gray-200 w-full lg:sticky md:sticky fixed lg:top-4 md:top-4 bottom-0">
                         <p className="text-center mb-2">Free</p>
                         <Button variant="primary">Make Appoinment</Button>
                     </BaseCard>
