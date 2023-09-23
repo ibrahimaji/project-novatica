@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
-export const AppLogo = () => {
+export const AppLogo = ({margin_b = "mb-6"}) => {
   return (
     <div>
       <Link
         href="#"
-        className="flex items-center mb-6 text-2xl font-semibold text-gray-900 "
+        className={twMerge("flex items-center text-2xl font-semibold text-gray-900",margin_b)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
